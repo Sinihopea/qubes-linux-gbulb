@@ -1,6 +1,11 @@
 %define mod_name gbulb
 %define debug_package %{nil}
 
+# SUSE doesn't have python3_pkgversion macro
+%if 0%{?suse_version} == 1500 && 0%{?is_opensuse}
+%global python3_pkgversion 3
+%endif
+
 Name:           python-%{mod_name}
 Version:        0.6.1
 Release:        1%{?dist}
